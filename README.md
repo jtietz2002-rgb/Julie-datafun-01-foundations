@@ -270,3 +270,6 @@ Press `Ctrl c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
+
+## Descriptions of changes made by Julie Tietz
+1. Changed author name and referenced filename from app.py to newapp.py
