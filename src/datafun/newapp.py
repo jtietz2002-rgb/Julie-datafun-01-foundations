@@ -1,7 +1,7 @@
-"""src/datafun/app.py - Project script.
+"""src/datafun/newapp.py - Project script.
 
-Author: Denise Case
-Date: 2026-08-20
+Author: Julie Tietz
+Date: 2026-08-26
 
 HOW TO RUN THIS FILE:
 
@@ -11,7 +11,7 @@ open an integrated Terminal in the root project folder.
 Paste the following command and press ENTER or RETURN
 to run this file as a script:
 
-uv run python -m datafun.app
+uv run python -m datafun.newapp
 
 DOMAIN:
 
