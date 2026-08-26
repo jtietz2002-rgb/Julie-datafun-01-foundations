@@ -97,7 +97,7 @@ GRAIN: Final[str] = "one penguin"  # CUSTOM
 # from other columns in the dataset.
 # This must match a numeric column name EXACTLY as it appears in the CSV file.
 # I picked "body_mass_g" as the target column.
-A_TARGET_WE_COULD_PREDICT: Final[str] = "body_mass_g"
+A_TARGET_WE_COULD_PREDICT: Final[str] = "flipper_length_mm"
 
 # CUSTOM: Choose one other NUMERIC column
 # as a FEATURE that might help predict the target.
@@ -113,9 +113,9 @@ A_FEATURE_THAT_MIGHT_HELP: Final[str] = "bill_length_mm"
 # like I typed it.
 # Open and close with three double quotes to get a multi-line string.
 WHY_THE_FEATURE_MIGHT_HELP: Final[str] = r"""
-A bigger penguin probably has both a longer bill and more mass,
-so bill length might help predict body mass.
-That is, a longer bill may indicate a larger body mass.
+A bigger penguin probably has both a longer bill and longer flippers,
+so bill length might help predict flipper length.
+That is, a longer bill may indicate a longer flipper.
 """
 
 

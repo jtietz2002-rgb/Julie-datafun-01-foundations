@@ -273,3 +273,4 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## Descriptions of changes made by Julie Tietz
 1. Changed author name and referenced filename from app.py to newapp.py
+2. Changed one target variable from body mass to flipper length because they likely are positively correlated.
