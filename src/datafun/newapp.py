@@ -47,13 +47,12 @@ from pathlib import Path
 from typing import Final
 
 from datafun_toolkit.logger import get_logger, log_header, log_path
-from eda_vizkit import save_chart, show_numeric_relationship
-import matplotlib.pyplot as plt
 import pandas as pd
+
 # Load the penguins dataset from the CSV file into a pandas DataFrame.
 penguins = pd.read_csv("data/newpenguins.csv")
 
-from datafun.utils_data import get_analyst_description, inspect
+from datafun.utils_data import inspect
 
 # === CONFIGURE LOGGER ONCE FOR THE APPLICATION ===
 
@@ -145,8 +144,6 @@ def main() -> None:
     LOG.info("03. DESCRIBE the data.")
     LOG.info("-------------------------------")
 
-    
-    
     # Calculate the average mass of each species of penguin using the pandas `groupby` method.
     # Display the result in a table format using the `print` function.
     average_mass = penguins.groupby("species", as_index=False)["body_mass_g"].mean()
