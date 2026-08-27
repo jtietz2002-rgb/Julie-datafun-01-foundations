@@ -93,33 +93,6 @@ DATA_FILE_PATH: Final[Path] = Path("data") / "newpenguins.csv"
 # Fill this string value AFTER exploring the data.
 GRAIN: Final[str] = "one penguin"  # CUSTOM
 
-# === FIND A COLUMN YOU MIGHT BE ABLE TO PREDICT ===
-
-# CUSTOM: Choose one NUMERIC target value that you might be able to predict
-# from other columns in the dataset.
-# This must match a numeric column name EXACTLY as it appears in the CSV file.
-# I picked "body_mass_g" as the target column.
-A_TARGET_WE_COULD_PREDICT: Final[str] = "flipper_length_mm"
-
-# CUSTOM: Choose one other NUMERIC column
-# as a FEATURE that might help predict the target.
-# This must match a numeric column name EXACTLY as it appears in the CSV file.
-# I picked "bill_length_mm" as the feature column.
-A_FEATURE_THAT_MIGHT_HELP: Final[str] = "bill_length_mm"
-
-# CUSTOM: Document your thinking.
-# Why do you think that feature could help predict the target?
-# I said the following.
-# The `r`` in front of the string indicates a `raw` string,
-# so it is very forgiving - it'll show up in the log
-# like I typed it.
-# Open and close with three double quotes to get a multi-line string.
-WHY_THE_FEATURE_MIGHT_HELP: Final[str] = r"""
-A bigger penguin probably has both a longer bill and longer flippers,
-so bill length might help predict flipper length.
-That is, a longer bill may indicate a longer flipper.
-"""
-
 
 # === DEFINE THE MAIN FUNCTION ===
 
@@ -172,41 +145,11 @@ def main() -> None:
     LOG.info("03. DESCRIBE the data.")
     LOG.info("-------------------------------")
 
-    # Call the get_analyst_description function.
-    # Pass in the variables defined above.
-    # The function will return a string
-    # with a summary of the data from the analyst's perspective.
-
-    summary_string: str = get_analyst_description(
-        grain=GRAIN,
-        target=A_TARGET_WE_COULD_PREDICT,
-        feature=A_FEATURE_THAT_MIGHT_HELP,
-        why=WHY_THE_FEATURE_MIGHT_HELP,
-        log=LOG,
-    )
-    # Log the summary string.
-    LOG.info(summary_string)
-
-    LOG.info("-------------------------------")
-    LOG.info("04. VISUALIZE the selected target and feature.")
-    LOG.info("-------------------------------")
-
-    # We required both the target and the feature to be numeric columns.
-    # A good way to visualize the relationship
-    # between two numeric columns is a scatter plot.
-
-    # Define a path to save the feature vs target scatter plot.
-    # REQUIRED: Use the "docs/images" folder to store generated charts.
-    CHART_PATH = Path("docs/images/feature-target-scatter.png")
-
-    # Call an imported function that will show a scatter plot
-    # Pass in the pandas DataFrame (df) along with the target and feature column names.
-    # It will return a matplotlib Axes object representing the scatter plot.
-    ax = show_numeric_relationship(
-        df, x=A_FEATURE_THAT_MIGHT_HELP, y=A_TARGET_WE_COULD_PREDICT
-    )
+    
+    
     # Calculate the average mass of each species of penguin using the pandas `groupby` method.
-    average_mass = penguins.groupby("species")["body_mass_g"].mean()
+    # Display the result in a table format using the `print` function.
+    average_mass = penguins.groupby("species", as_index=False)["body_mass_g"].mean()
 
     print(average_mass)
 
