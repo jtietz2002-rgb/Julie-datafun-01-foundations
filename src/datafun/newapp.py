@@ -204,14 +204,7 @@ def main() -> None:
         df, x=A_FEATURE_THAT_MIGHT_HELP, y=A_TARGET_WE_COULD_PREDICT
     )
 
-    # call the save_chart() function and pass in the Axes and the path
-    save_chart(ax, CHART_PATH)
-    LOG.info(f"Chart saved successfully at {CHART_PATH}.")
-
-    LOG.info(
-        "IMPORTANT: Close chart window to continue by clicking its X or close button."
-    )
-    plt.show()
+    
 
     LOG.info("===================================")
     LOG.info("END main() - Executed successfully!")
