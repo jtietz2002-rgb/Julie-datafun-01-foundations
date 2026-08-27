@@ -50,6 +50,8 @@ from datafun_toolkit.logger import get_logger, log_header, log_path
 from eda_vizkit import save_chart, show_numeric_relationship
 import matplotlib.pyplot as plt
 import pandas as pd
+# Load the penguins dataset from the CSV file into a pandas DataFrame.
+penguins = pd.read_csv("data/newpenguins.csv")
 
 from datafun.utils_data import get_analyst_description, inspect
 
@@ -76,7 +78,7 @@ LOG: logging.Logger = get_logger("P01", level="DEBUG")
 # Use the Path() constructor to create a Path object representing the "data" folder.
 # Combine with the CSV file name
 # to get the full path to the data file.
-DATA_FILE_PATH: Final[Path] = Path("data") / "penguins.csv"
+DATA_FILE_PATH: Final[Path] = Path("data") / "newpenguins.csv"
 
 # === OPEN THE DATA FILE IN EXCEL ===
 
@@ -203,8 +205,10 @@ def main() -> None:
     ax = show_numeric_relationship(
         df, x=A_FEATURE_THAT_MIGHT_HELP, y=A_TARGET_WE_COULD_PREDICT
     )
+    # Calculate the average mass of each species of penguin using the pandas `groupby` method.
+    average_mass = penguins.groupby("species")["body_mass_g"].mean()
 
-    
+    print(average_mass)
 
     LOG.info("===================================")
     LOG.info("END main() - Executed successfully!")
